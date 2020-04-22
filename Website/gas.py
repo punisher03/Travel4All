@@ -69,7 +69,7 @@ def gas_cost(df):
         'WV': 'West Virginia',
         'WY': 'Wyoming'
         }
-    gas_prices = pd.read_csv('gasprices.csv', index_col=0)
+    gas_prices = pd.read_csv('../gasprices.csv', index_col=0)
     city_mpg=48
     highway_mpg=43
     gas_type="Regular Price"
