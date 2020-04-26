@@ -15,8 +15,9 @@ def lat_lon(origin_address):
     o_lat = location_origin['lat']
     o_lon = location_origin['lng']
     origin = [o_lat, o_lon]
+    aorigin=(o_lat, o_lon)
     print(origin)
-    return origin
+    return origin,aorigin
 
     # Nearest airport search, put into a result array
     #Need to get live latitude and longitudinal data from Google Maps

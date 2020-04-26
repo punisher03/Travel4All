@@ -1,6 +1,491 @@
-<html>
-	<head><title>Test Data</title></head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Travel4All</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.nunki.com.au/projekte/fly365/assets/css/fly365.css" />
+    <link rel="stylesheet" href="https://www.nunki.com.au/projekte/fly365/assets/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,700" rel="stylesheet">
+    <script src="https://www.nunki.com.au/projekte/fly365/assets/js/bootstrap-slider.js"></script>
+</head>
+
 <body>
-	{{data}}
+
+    <section id="results" )
+            no-repeat;
+            background-attachment: fixed;
+            background-position: bottom;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="itineraries">
+                        <!-- BEGIN ITINERARY -->
+                        <div class="panel panel-default itinerary">
+
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="panel-group">
+                                            <div class="panel panel-default
+                                                    option-set">
+                                                <div class="panel-heading" role="button" aria-expanded="false">
+                                                    <div class="panel-title
+                                                            flightGroupDetails">
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12
+                                                                            text-center
+                                                                            flightTitle">
+                                                                        Your flights from
+                                                                        <span>{{flights[0]["itineraries"][0]["segments"][0]["departure"]["iataCode"] }}</span> to
+                                                                        <span>{{flights[0]["itineraries"][0]["segments"][-1]["arrival"]["iataCode"]  }}</span> on the
+                                                                        <span>{{dateWords(flights[0]["itineraries"][0]["segments"][0]["departure"]["at"])}}</span>
+                                                                        <span class="glyphicon
+                                                                                glyphicon-chevron-down" aria-hidden="true"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {%for i in range(0, 2)%}
+                                                <div class="{{i}}
+                                                        panel-collapse collapse
+                                                        in" role="tabpanel">
+                                                    <div class="panel-body
+                                                            flightSet">
+
+                                                        <div class="{{i}}x panel
+                                                                journey ">
+                                                            <div class="panel-heading" role="button" aria-expanded="false">
+                                                                <div class="panel-title">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-12
+                                                                                col-sm-2">
+                                                                            <button type="button" class="btn-checkbox" onclick="
+                                                                            $('.journey').removeClass('panel-success');
+                                                                            $('.{{i}}x').toggleClass('panel-success');
+                                                                            $('.fa-dot-circle-o').toggleClass('fa-circle-o');
+
+                                                                            $('.fa-dot-circle-o').removeClass('fa-dot-circle-o');
+
+                                                                            $('.{{i}}f').toggleClass('fa-circle-o');
+                                                                            $('.{{i}}f').toggleClass('fa-dot-circle-o');
+                                                                            ">
+                                                                                    <span
+                                                                                        class="{{i}}f flightSelect
+                                                                                        fa
+                                                                                        fa-circle-o"></span>
+                                                                                </button>
+                                                                            <img src='https://www.nunki.com.au/projekte/fly365/assets/images/airlines/{{flights[i]["itineraries"][0]["segments"][0]["carrierCode"]}}.png' class="img-responsive" alt="">
+                                                                        </div>
+                                                                        <div class="col-xs-10
+                                                                                col-xs-push-1
+                                                                                col-sm-10
+                                                                                col-sm-push-0">
+                                                                            <div class="row">
+                                                                                <div class="col-sm-4
+                                                                                        col-sm-push-0
+                                                                                        col-xs-10
+                                                                                        col-xs-push-1">
+                                                                                    <div class="flightDetails">
+                                                                                        <div cass="row">
+                                                                                            <div class="col-sm-2
+                                                                                                    col-xs-2">
+                                                                                                <div class="time">
+                                                                                                    <span class="departure
+                                                                                                            fa
+                                                                                                            fa-plane"></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-sm-10
+                                                                                                    col-xs-10
+                                                                                                    text-center">
+                                                                                                <time>{{flights[i]["itineraries"][0]["segments"][0]["departure"]["at"][11:16]}}</time>
+                                                                                                <div class="location">
+                                                                                                    {{flights[i]["itineraries"][0]["segments"][0]["departure"]["iataCode"] }} ({{flights[i]["itineraries"][0]["segments"][0]["departure"]["iataCode"] }})
+                                                                                                </div>
+                                                                                                <div class="date">{{dateWords(flights[i]["itineraries"][0]["segments"][0]["departure"]["at"]) }}
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-2
+                                                                                        col-xs-12">
+                                                                                    <div class="dots" style="color: #9b91d4;font-size: 14px;"><span class="fa
+                                                                                                fa-clock-o"></span> {{getDuration(flights[i]["itineraries"][0]["segments"][0]["departure"]["at"], flights[i]["itineraries"][0]["segments"][-1]["arrival"]["at"])[0]}}</div>
+                                                                                    <div class="stops">
+                                                                                        <span class="fa
+                                                                                                fa-dot-circle-o
+                                                                                                first-stop">
+                                                                                            </span>
+                                                                                        <span class="one-stop
+                                                                                                fa
+                                                                                                fa-dot-circle-o">
+                                                                                            </span>
+                                                                                        <span class="fa
+                                                                                                fa-dot-circle-o
+                                                                                                last-stop">
+                                                                                            </span>
+                                                                                        <span class="number-stops">
+                                                                                                {% if leng(flights[i]["itineraries"][0]["segments"]) < 2 %}
+                                                                                                Non Stop
+                                                                                                {%else%}
+                                                                                                {{leng(flights[i]["itineraries"][0]["segments"])-1}} Stop
+                                                                                                {%endif%}
+                                                                                            </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-4
+                                                                                        col-sm-push-0
+                                                                                        col-xs-10
+                                                                                        col-xs-push-1">
+                                                                                    <div class="flightDetails">
+                                                                                        <div cass="row">
+                                                                                            <div class="col-sm-2
+                                                                                                    col-xs-2">
+                                                                                                <div class="time">
+                                                                                                    <span class="destination
+                                                                                                            fa
+                                                                                                            fa-plane"></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-sm-10
+                                                                                                    col-xs-10
+                                                                                                    text-center">
+                                                                                                <time>{{flights[i]["itineraries"][0]["segments"][-1]["arrival"]["at"][11:16]
+                                                                                                        }}</time>
+                                                                                                <div class="location">
+                                                                                                    {{flights[i]["itineraries"][0]["segments"][-1]["arrival"]["iataCode"]}} ({{flights[i]["itineraries"][0]["segments"][-1]["arrival"]["iataCode"] }})
+                                                                                                </div>
+                                                                                                <div class="date">
+                                                                                                    {{dateWords(flights[i]["itineraries"][0]["segments"][-1]["arrival"]["at"]) }}
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-2
+                                                                                        col-xs-12">
+                                                                                    <div class="row">
+                                                                                        <div class="col-sm-21
+                                                                                                col-md-12
+                                                                                                col-xs-12">
+                                                                                            <div class="luggage" style="color:#fff;background-color: rgb(103, 85, 185);font-size: 16px;padding:5px">$ {{flights[i]["price"]["grandTotal"]}}
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-4
+                                                                                                hidden-xs
+                                                                                                col-xs-0
+                                                                                                hidden-sm
+                                                                                                hidden-lg
+                                                                                                hidden-lg">
+                                                                                            <span class="expandFlightDetails
+                                                                                                    glyphicon
+                                                                                                    glyphicon-chevron-down" onclick="$('.{{i}}').toggleClass('collapse');"></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-sm-12
+                                                                                    col-xs-12
+                                                                                    hidden-md
+                                                                                    text-center">
+                                                                                <span class="expandFlightDetails
+                                                                                        glyphicon
+                                                                                        glyphicon-chevron-down" onclick="$('.{{i}}').toggleClass('collapse');"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-xs-12">
+                                                                            <div class="{{i}}
+                                                                                    panel-collapse
+                                                                                    collapse" role="tabpanel" aria-expanded="false">
+                                                                                <div class="panel-body">
+                                                                                    <div class="row">
+                                                                                        <div class="col-xs-12
+                                                                                                col-sm-8">
+                                                                                            <div class="leg">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-xs-6">
+                                                                                                        <div>
+                                                                                                            <em>{{flights[0]["itineraries"][0]["segments"][0]["departure"]["iataCode"]}}</em>
+                                                                                                            <!-- react-text: 1644 -->
+                                                                                                            (
+                                                                                                            <!-- /react-text -->
+                                                                                                            <!-- react-text: 1645 -->
+                                                                                                            {{flights[0]["itineraries"][0]["segments"][0]["departure"]["iataCode"]}}
+                                                                                                            <!-- /react-text -->
+                                                                                                            <!-- react-text: 1646 -->
+                                                                                                            )
+                                                                                                            <!-- /react-text -->
+                                                                                                        </div>
+                                                                                                        <div>United States</div>
+                                                                                                    </div>
+                                                                                                    <div class="col-xs-6">
+                                                                                                        <em>
+                                                                                                                <div>{{flights[i]["itineraries"][0]["segments"][0]["departure"]["at"][11:16]}}</div>
+                                                                                                                <div>{{dateWords(flights[i]["itineraries"][0]["segments"][0]["arrival"]["at"]) }}
+                                                                                                                </div>
+                                                                                                            </em></div>
+                                                                                                </div>
+                                                                                                <div class="row">
+                                                                                                    <div class="col-xs-6">
+                                                                                                        <div>{{flights[i]["itineraries"][0]["segments"][0]["arrival"]["carrierCode"]}}{{flights[i]["itineraries"][0]["segments"][0]["arrival"]["number"]}}</div>
+                                                                                                        <div><span class="">Economy</span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-xs-6">
+                                                                                                        <div><span><span
+                                                                                                                        class="glyphicon
+                                                                                                                        glyphicon-time"
+                                                                                                                        aria-hidden="true"></span>
+                                                                                                            <!-- react-text: 1661 -->&nbsp;
+                                                                                                            <!-- /react-text -->
+                                                                                                            {{getDuration(flights[i]["itineraries"][0]["segments"][0]["departure"]["at"], flights[i]["itineraries"][0]["segments"][0]["arrival"]["at"])[0]}}
+                                                                                                            </span>
+                                                                                                        </div>
+                                                                                                        <div>
+                                                                                                            <i class="fa
+                                                                                                                    fa-plane"></i>
+                                                                                                            <!-- react-text: 1669 -->
+                                                                                                            <!-- /react-text -->
+                                                                                                            <!-- react-text: 1670 -->
+                                                                                                            Boeing 787
+                                                                                                            <!-- /react-text -->
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="row">
+                                                                                                    <div class="col-xs-6">
+                                                                                                        <div><em>{{flights[i]["itineraries"][0]["segments"][0]["arrival"]["iataCode"]}}</em>
+                                                                                                            <!-- react-text: 1687 -->
+                                                                                                            (
+                                                                                                            <!-- /react-text -->
+                                                                                                            <!-- react-text: 1688 -->
+                                                                                                            {{flights[i]["itineraries"][0]["segments"][0]["arrival"]["iataCode"]}}
+                                                                                                            <!-- /react-text -->
+                                                                                                            <!-- react-text: 1689 -->
+                                                                                                            )
+                                                                                                            <!-- /react-text -->
+                                                                                                        </div>
+                                                                                                        <div>United States
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-xs-6">
+                                                                                                        <em>
+                                                                                                                <div>{{flights[i]["itineraries"][0]["segments"][0]["arrival"]["at"][11:16]}}</div>
+                                                                                                                <div>{{dateWords(flights[i]["itineraries"][0]["segments"][0]["arrival"]["at"]) }}
+                                                                                                                </div>
+                                                                                                            </em></div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            {% if leng(flights[i]["itineraries"][0]["segments"]) > 1 %}
+                                                                                            <div class="stop-over">Stopover Time: &nbsp;
+                                                                                                <span class="glyphicon
+                                                                                                        glyphicon-time" aria-hidden="true"></span> {{getDuration(flights[i]["itineraries"][0]["segments"][0]["arrival"]["at"],
+                                                                                                flights[i]["itineraries"][0]["segments"][-1]["departure"]["at"])[0]}}
+
+                                                                                            </div>
+                                                                                            <div class="leg">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-xs-6">
+                                                                                                        <div><em>{{flights[i]["itineraries"][0]["segments"][-1]["departure"]["iataCode"]}}</em>
+                                                                                                            <!-- react-text: 1701 -->
+                                                                                                            (
+                                                                                                            <!-- /react-text -->
+                                                                                                            <!-- react-text: 1702 -->
+                                                                                                            {{flights[i]["itineraries"][0]["segments"][-1]["departure"]["iataCode"]}}
+                                                                                                            <!-- /react-text -->
+                                                                                                            <!-- react-text: 1703 -->
+                                                                                                            )
+                                                                                                            <!-- /react-text -->
+                                                                                                        </div>
+                                                                                                        <div>United States
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-xs-6">
+                                                                                                        <em>
+                                                                                                                <div>{{flights[i]["itineraries"][0]["segments"][-1]["departure"]["at"][11:16]}}</div>
+                                                                                                                <div>{{dateWords(flights[i]["itineraries"][0]["segments"][-1]["departure"]["at"])}}
+                                                                                                                </div>
+                                                                                                            </em></div>
+                                                                                                </div>
+                                                                                                <div class="row">
+                                                                                                    <div class="col-xs-6">
+                                                                                                        <div>{{flights[i]["itineraries"][0]["segments"][-1]["arrival"]["carrierCode"]}}{{flights[i]["itineraries"][0]["segments"][-1]["arrival"]["number"]}}</div>
+                                                                                                        <div><span class="">Economy</span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-xs-6">
+                                                                                                        <div><span><span
+                                                                                                                        class="glyphicon
+                                                                                                                        glyphicon-time"
+                                                                                                                        aria-hidden="true"></span> {{getDuration(flights[i]["itineraries"][0]["segments"][-1]["departure"]["at"], flights[i]["itineraries"][0]["segments"][-1]["arrival"]["at"])[0]}}</span>
+                                                                                                        </div>
+                                                                                                        <div>
+                                                                                                            <i class="fa
+                                                                                                                    fa-plane"></i>
+                                                                                                            <!-- react-text: 1726 -->
+                                                                                                            <!-- /react-text -->
+                                                                                                            <!-- react-text: 1727 -->
+                                                                                                            Airbus A320
+                                                                                                            <!-- /react-text -->
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="row">
+                                                                                                    <div class="col-xs-12"></div>
+                                                                                                </div>
+                                                                                                <div class="row">
+                                                                                                    <div class="col-xs-6">
+                                                                                                        <div>
+                                                                                                            <em>{{flights[i]["itineraries"][0]["segments"][-1]["arrival"]["iataCode"]}}</em>
+                                                                                                            <!-- react-text: 1734 -->
+                                                                                                            (
+                                                                                                            <!-- /react-text -->
+                                                                                                            <!-- react-text: 1735 -->
+                                                                                                            {{flights[i]["itineraries"][0]["segments"][-1]["arrival"]["iataCode"]}}
+                                                                                                            <!-- /react-text -->
+                                                                                                            <!-- react-text: 1736 -->
+                                                                                                            )
+                                                                                                            <!-- /react-text -->
+                                                                                                        </div>
+                                                                                                        <div>United States</div>
+                                                                                                    </div>
+                                                                                                    <div class="col-xs-6">
+                                                                                                        <em>
+                                                                                                                <div>{{flights[i]["itineraries"][0]["segments"][-1]["arrival"]["at"][11:16]}}
+                                                                                                                </div>
+                                                                                                                <div>{{dateWords(flights[i]["itineraries"][0]["segments"][-1]["arrival"]["at"])}}
+                                                                                                                </div>
+                                                                                                            </em></div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            {%endif%}
+
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+
+
+                                                        </div>
+                                                    </div>
+                                                    {%endfor%}
+                                                </div>
+
+
+                                                <!-- FRANKFURT -- BRISBANE -->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- END ITINIERARY -->
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+    </section>
+
+    <script type="text/javascript">
+        $('body').on('click', '.fieldTripSelect', function() {
+            $('.tripSelect-js').slideDown();
+        }).change('.tripSelect-js :checkbox', function() {
+            $('.tripSelect-js').slideUp();
+        }).on('click', '.openMenu-js', function() {
+            $('.navbar').addClass('scrollActive');
+            $('#topLogo').addClass('scrollActive');
+        }).on('click', '#airlineFilter .btn', function() {
+            $(this).toggleClass('active');
+            if ($(this).hasClass('active')) {
+                $('.tags').append('<span class="filterTag"><i class="fa fa-paper-plane-o"></i> ' + $(this).data('airline') + '</span>');
+            }
+        }).on('click', '.filterTag', function() {
+            $(this).fadeOut().remove();
+        }).on('click', '.selectTab', function() {
+            var tabID = $(this).data('tab');
+            $('.selectTab').removeClass('active');
+            $(this).addClass('active');
+            $('.tab-content').hide();
+            $('#' + tabID).fadeIn();
+            initiateSlider();
+        });
+
+
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 50) {
+                $('.navbar').addClass('scrollActive');
+                $('#topLogo').addClass('scrollActive');
+            } else {
+                $('.navbar').removeClass('scrollActive');
+                $('#topLogo').removeClass('scrollActive');
+            }
+        });
+
+        function initiateSlider() {
+            $("#flight_duration").slider('relayout');
+            $("#flight_duration").slider({
+                id: 'flightDuration',
+                ticks_labels: ['20h', '22h', '24h', '26h', '28h', '30h', '32h', '34h', '36h'],
+                ticks_snap_bounds: 30,
+                tooltip: 'hide'
+            });
+            $("#departure_time").slider({
+                id: 'departureTime',
+                ticks_labels: ['12<span>am</span>', '<span class="leftDivider"></span>', '<span class="middleDivider"></span>', '<span class="rightDivider"></span>', '2<span>am</span>', '<span class="leftDivider"></span>', '<span class="middleDivider"></span>', '<span class="rightDivider"></span>', '4 <span>am</span>', '<span class="leftDivider"></span>', '<span class="middleDivider"></span>', '<span class="rightDivider"></span>', '6 <span>am</span>', '<span class="leftDivider"></span>', '<span class="middleDivider"></span>', '<span class="rightDivider"></span>', '8 <span>am</span>', '<span class="leftDivider"></span>', '<span class="middleDivider"></span>', '<span class="rightDivider"></span>', '10 <span>am</span>', '<span class="leftDivider"></span>', '<span class="middleDivider"></span>', '<span class="rightDivider"></span>', '12 <span>pm</span>', '<span class="leftDivider"></span>', '<span class="middleDivider"></span>', '<span class="rightDivider"></span>', '2 <span>pm</span>', '<span class="leftDivider"></span>', '<span class="middleDivider"></span>', '<span class="rightDivider"></span>', '4 <span>pm</span>', '<span class="leftDivider"></span>', '<span class="middleDivider"></span>', '<span class="rightDivider"></span>', '6 <span>pm</span>', '<span class="leftDivider"></span>', '<span class="middleDivider"></span>', '<span class="rightDivider"></span>', '8 <span>pm</span>', '<span class="leftDivider"></span>', '<span class="middleDivider"></span>', '<span class="rightDivider"></span>', '10 <span>pm</span>', '<span class="leftDivider"></span>', '<span class="middleDivider"></span>', '<span class="rightDivider"></span>', '12 <span>am</span>'],
+                ticks_snap_bounds: 30,
+                tooltip: 'hide'
+            });
+            $("#departure_time").slider('relayout');
+            $("#departure_time").on('change', function() {
+                console.log($("#departure_time").slider("getValue"));
+            });
+        }
+        var priceRangeSlider = $("#price_range").slider({
+            id: 'priceRange',
+            tooltip: 'hide'
+        });
+        priceRangeSlider.on('change', function() {
+            var priceRangeValue = $("#price_range").slider("getValue");
+            $('#price_from').val(priceRangeValue[0]);
+            $('#price_to').val(priceRangeValue[1]);
+        });
+    </script>
+    <style type="text/css">
+        #departureTime .slider-tick-container {
+            display: none
+        }
+    </style>
 </body>
+
 </html>
