@@ -1,3 +1,68 @@
+*
+{
+    padding: 0;
+    margin: 0;
+}
+a {
+  color: black;
+}
+.header
+{
+    height: 100%;
+    background-image:url("../images/pexels-photo-2007401.jpeg");
+    background-size: cover;
+    background-position:center;
+    background-attachment:fixed;
+    padding-top:45px;
+    padding-left:500px;
+
+
+}
+.header img
+{
+    width:170px;
+    float: left;
+}
+
+.fly-btn
+{
+    width:100px;
+    padding: 8px 0;
+    outline: none !important;
+    border: 2px solid rgb(10, 7, 7);
+    border-radius: 50px;
+    background: transparent;
+    color: rgb(12, 9, 9);
+    float: center;
+}
+
+.drive-btn
+{
+    width:100px;
+    padding: 8px 0;
+    outline: none !important;
+    border: 2px solid rgb(14, 11, 11);
+    border-radius: 50px;
+    background: transparent;
+    color: rgb(14, 11, 11);
+    float: center;
+}
+.center1 {
+  margin: 0;
+  position: absolute;
+  top: 45%;
+  left: 42%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.center{
+    margin: 0;
+    position: absolute;
+    top: 35%;
+    left: 42%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
 .section {
     position: relative;
     height: 100vh;
@@ -143,3 +208,23 @@
     font-size: 16px;
     color: rgba(255, 255, 255, 0.8);
 }
+.drive{
+      height: 100%;
+      background-image: url("../images/empty-country-road-in-fog-24821.jpg");
+      background-size: cover;
+      background-position:center;
+      background-attachment:fixed;
+      padding-top:45px;
+      padding-left:500px;
+
+  }
+.drive-submit{
+   width:100px;
+   padding: 8px 0;
+   outline: none !important;
+   border: 2px solid rgb(14, 11, 11);
+   border-radius: 50px;
+   background: transparent;
+   color: rgb(14, 11, 11);
+   float: center;
+ }

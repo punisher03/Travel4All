@@ -8,7 +8,7 @@ import iso8601
 import amadeus
 from amadeus import Client
 import googlemaps
-from gas import  calc_gas_price,gas_cost
+from gas import  calc_gas_price,gas_cost,get_lat_lon,distance_between
 from amadeus1 import lat_lon,nearest_airport,distance
 from final_flow import finall_flow
 import gmaps
@@ -102,6 +102,23 @@ def flight_search():
     a.append(d)
     return render_template('card.html',o=o,oa=oa,da=da,d=d,totalcost=totalcost)
 
+@app.route('/drivedetails',methods=['GET','POST'], endpoint = 'drive_search')
+def drive_search():
+    t1=request.form['FROM1']
+    t2=request.form['TO1']
+    t3=request.form['MPG']
+    t4=request.form['HIGHWAY']
+    t5=request.form['FUEL']
+    t6=request.form['STATE']
+
+    origin=get_lat_lon(t1)
+    destination=get_lat_lon(t2)
+    j=distance_between(origin,destination)
+    gassy_price=calc_gas_price(t6,int(t3),int(t4),t5,j[0])
+
+    return render_template('drive_results.html',prices=gassy_price,diss=j[0],time=j[1])
+
+
 @app.route('/flights')
 def flight_display():
 	return render_template('searching.html',data=a[0],flights=a[1],len=a[2],leng=len,getDuration=getDuration,dateWords=dateWords,getDate=iso8601.parse_date)
@@ -111,7 +128,16 @@ def car1_display():
     route_data = get_route_data(2)
     return render_template('car.html',ACCESS_KEY=MAPBOX_ACCESS_KEY,route_data=route_data,thisorigin=a[8],o=a[5],oa=a[6],c1=a[3])
 
+@app.route('/landingpage')
+def landing1():
+    return render_template('landing.html')
+
+@app.route('/drivepage')
+def drive1():
+    return render_template('drive.html')
+
 @app.route('/cardestination')
+
 def car2_diplay():
     route_data = get_route_data(3)
     return render_template('car1.html',ACCESS_KEY=MAPBOX_ACCESS_KEY,route_data=route_data,thisorigin=a[10],da=a[7],d=a[12],c2=a[4])

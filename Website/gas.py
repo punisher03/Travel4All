@@ -1,10 +1,16 @@
 # dictionary to get full name of state from abbreviation
 import pandas as pd
+import requests
+from datetime import datetime
+import googlemaps
 
 def calc_gas_price(state, city_mpg, highway_mpg, fuel_type, trip_length):
 
     gas_prices = pd.read_csv('gasprices.csv', index_col=0)
     cost_per_gallon = float(gas_prices[gas_prices['State'] == state][fuel_type])
+    print(city_mpg)
+    print(highway_mpg)
+    print(city_mpg+highway_mpg)
     avg_mpg = 0.5*(city_mpg + highway_mpg)
     price = (trip_length/avg_mpg)*cost_per_gallon
     return price
@@ -81,3 +87,29 @@ def gas_cost(df):
         costs.append(cost)
     df['cost'] = costs
     return df
+
+def get_lat_lon(origin_address):
+    apikey = 'AIzaSyDxk6272R8Yu_QDKZRyR27SZBaJKN-_3u0'
+    r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address="%s"&key=%s'%
+                 (origin_address, apikey))
+    result_o = r.json()['results']
+    location_origin = result_o[0]['geometry']['location']
+    o_lat = location_origin['lat']
+    o_lon = location_origin['lng']
+    origin = [o_lat, o_lon]
+    return origin
+
+
+def distance_between(origin,destination):
+    apikey = 'AIzaSyDxk6272R8Yu_QDKZRyR27SZBaJKN-_3u0'
+    now = datetime.now()
+    gmaps = googlemaps.Client(key=apikey)
+    origin_str = str(origin[0]) + "," + str(origin[1])
+    destination_str=str(destination[0]) + "," + str(destination[1])
+    directions = gmaps.directions(origin = origin_str,destination = destination_str,
+                                      mode='driving',departure_time = now)
+    dist_from_origin=directions[0]['legs'][0]['distance']['text']
+    time_from_origin=directions[0]['legs'][0]['duration']['text']
+    distt_from_origin=float(dist_from_origin[:-3].replace(',',''))
+
+    return [distt_from_origin,time_from_origin]

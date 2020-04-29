@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>Driving</title>
+        <link rel ="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+        <meta name = "viewport" content ="width=device-width , initial-scale:1.0">
+        <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <section class = "drive">
+            <div class= "container">
+                <img src="./static/images/b6f4f440-7d84-42e9-9608-90764cdafffb_200x200 (1).png">
+                <form action="/drivedetails" method="POST" role="form">
+                    <fieldset>
+                        <legend>Driving</legend>
+                        <p>
+                            <label>From</label>
+                            <input type="text"
+                                    id="from"
+                                    name="FROM1"
+                                    placeholder="Starting location?"/>
+                        </p>
+                        <p>
+                            <label>To</label>
+                            <input type="text"
+                                    id="to"
+                                    name="TO1"
+                                    placeholder="Destination location?"/>
+                        </p>
+                        <p>
+                            <label>State</label>
+                            <input type="text"
+                                    id="state"
+                                    name="STATE"
+                                    placeholder="Your state?"/>
+
+                        </p>
+                        <p>
+                            <label>City MPG</label>
+                            <input type ="number"
+                                    id="city"
+                                    name="MPG"
+                                    value="Enter your City MPG"/>
+                        </p>
+                        <p>
+                            <label>Highway MPG</label>
+                            <input type="number"
+                                    id="highway"
+                                    name="HIGHWAY"
+                                    value="Enter highway MPG" />
+                        </p>
+                        <p>
+                            <label for ="fuel">Choose Fuel Type</label>
+                            <select id ="fuel" name="FUEL">
+                                <option
+                                value="Regular Price">Regular Price</option>
+                                <option
+                                value="Mid-Grade Price">Mid-Grade Price</option>
+                                <option
+                                value="Premium Price">Premium Price</option>
+                                <option
+                                value="Diesel Price">Diesel Price</option>
+                            </select>
+
+                        </p>
+                            <button type="submit" class="drive-submit">
+                              Submit
+                            </button>
+                    </fieldset>
+                </form>
+
+            </div>
+        </section>
+
+    </body>
+</html>
