@@ -1,7 +1,45 @@
 <html>
-  <head> Trip details </head>
+  <head>
+    <link rel ="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+    <h1>
+    Trip details
+    </h1>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <style>
+        body { margin:0; padding:0; }
+        #map { width: 50%; height: 500px; }
+    </style>
+  <head>
+
   <body>
-    <h1> Total cost of the trip is {{prices}} </h1>
-    <h2> The shortest route shown takes {{time}} minutes and the distance is {{diss}}</h2>
+    <h2> Total cost of the trip by road is {{prices}} </h1>
+    <h4> The shortest route shown takes {{time}} minutes and the distance is {{diss}} miles</h2>
+
+      <div id="map"></div>
+      <script>
+          L.mapbox.accessToken = '{{ACCESS_KEY}}';
+
+          var map = L.mapbox.map('map', 'mapbox.streets', {
+            scrollWheelZoom: false,
+            zoomControl: true
+          }).setView({{orig}}, 10);
+          L.mapbox.featureLayer({{ routi|safe }}).addTo(map);
+      </script>
+  </body>
+</html>
+
+
+<html>
+  <head>
+    <link rel ="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+
+  </head>
+  <body>
+
   </body>
 </html>
