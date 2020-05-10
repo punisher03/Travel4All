@@ -6,6 +6,38 @@
 a {
   color: black;
 }
+
+h2 {
+  top: 20%;
+  color:black;
+}
+.flying-page {
+  background-image: url("../images/clouds.jpg");
+  /* background-repeat: no-repeat; */
+  height: 100%;
+  background-size: cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+.fly-btn, .drive-btn, .fly-submit, .drive-submit {
+  transition-duration: 0.4s;
+}
+
+.fly-btn:hover, .drive-btn:hover, .fly-submit:hover, .drive-submit:hover {
+  background-color: black;
+  color: white;
+}
+
+.logo {
+  margin: 0;
+  position: absolute;
+  top: 20%;
+  left: 42%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 .header
 {
     height: 100%;
@@ -13,7 +45,7 @@ a {
     background-size: cover;
     background-position:center;
     background-attachment:fixed;
-    padding-top:45px;
+    padding-top:100px;
     padding-left:500px;
 
 
@@ -21,12 +53,12 @@ a {
 .header img
 {
     width:170px;
-    float: left;
+    float: center;
 }
 
 .fly-btn
 {
-    width:100px;
+    width:200px;
     padding: 8px 0;
     outline: none !important;
     border: 2px solid rgb(10, 7, 7);
@@ -38,7 +70,7 @@ a {
 
 .drive-btn
 {
-    width:100px;
+    width:200px;
     padding: 8px 0;
     outline: none !important;
     border: 2px solid rgb(14, 11, 11);
@@ -47,10 +79,22 @@ a {
     color: rgb(14, 11, 11);
     float: center;
 }
-.center1 {
+
+.fly-submit{
+  width:100px;
+  padding: 8px 0;
+  outline: none !important;
+  border: 2px solid rgb(10, 7, 7);
+  border-radius: 50px;
+  background: transparent;
+  color: rgb(12, 9, 9);
+  float: center;
+}
+
+.message {
+  top: 45%;
   margin: 0;
   position: absolute;
-  top: 45%;
   left: 42%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -58,11 +102,21 @@ a {
 .center{
     margin: 0;
     position: absolute;
-    top: 35%;
+    top: 55%;
     left: 42%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
+.center1 {
+  margin: 0;
+  position: absolute;
+  top: 65%;
+  left: 42%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 .section {
     position: relative;
     height: 100vh;
@@ -77,145 +131,14 @@ a {
     transform: translateY(-50%);
 }
 
-#booking {
-    font-family: 'Montserrat', sans-serif;
-    background-image: url('../bg.jpg');
-    background-size: cover;
-    background-position: bottom;
-}
-
-#booking::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    background: rgba(5, 27, 56, 0.45);
-}
-
-.booking-form {
-    background-color: #fff;
-    padding: 50px 20px;
-    -webkit-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-}
-
-.booking-form .form-group {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.booking-form .form-control {
-    background-color: #ebecee;
-    border-radius: 4px;
-    border: none;
-    height: 40px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    color: #3e485c;
-    font-size: 14px;
-}
-
-.booking-form .form-control::-webkit-input-placeholder {
-    color: rgba(62, 72, 92, 0.3);
-}
-
-.booking-form .form-control:-ms-input-placeholder {
-    color: rgba(62, 72, 92, 0.3);
-}
-
-.booking-form .form-control::placeholder {
-    color: rgba(62, 72, 92, 0.3);
-}
-
-.booking-form input[type="date"].form-control:invalid {
-    color: rgba(62, 72, 92, 0.3);
-}
-
-.booking-form select.form-control {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-.booking-form select.form-control+.select-arrow {
-    position: absolute;
-    right: 0px;
-    bottom: 4px;
-    width: 32px;
-    line-height: 32px;
-    height: 32px;
-    text-align: center;
-    pointer-events: none;
-    color: rgba(62, 72, 92, 0.3);
-    font-size: 14px;
-}
-
-.booking-form select.form-control+.select-arrow:after {
-    content: '\279C';
-    display: block;
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
-
-.booking-form .form-label {
-    display: inline-block;
-    color: #3e485c;
-    font-weight: 700;
-    margin-bottom: 6px;
-    margin-left: 7px;
-}
-
-.booking-form .submit-btn {
-    display: inline-block;
-    color: #fff;
-    background-color: #1e62d8;
-    font-weight: 700;
-    padding: 14px 30px;
-    border-radius: 4px;
-    border: none;
-    -webkit-transition: 0.2s all;
-    transition: 0.2s all;
-}
-
-.booking-form .submit-btn:hover,
-.booking-form .submit-btn:focus {
-    opacity: 0.9;
-}
-
-.booking-cta {
-    margin-top: 80px;
-    margin-bottom: 30px;
-}
-
-.booking-cta h1 {
-    font-size: 52px;
-    text-transform: uppercase;
-    color: #fff;
-    font-weight: 700;
-}
-
-.booking-cta h2 {
-    font-size: 32px;
-    text-transform: uppercase;
-    color: #fff;
-    font-weight: 600;
-}
-
-.booking-cta p {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.8);
-}
 .drive{
       height: 100%;
       background-image: url("../images/empty-country-road-in-fog-24821.jpg");
       background-size: cover;
       background-position:center;
       background-attachment:fixed;
-      padding-top:45px;
-      padding-left:500px;
+      padding-top:10px;
+      /* padding-left:500px; */
 
   }
 .drive-submit{
@@ -227,4 +150,17 @@ a {
    background: transparent;
    color: rgb(14, 11, 11);
    float: center;
+ }
+
+.card-page {
+  background-image: url("../images/toyplane.jpg");
+  /* background-repeat: no-repeat; */
+  height: 100%;
+  background-size: cover;
+  background-position:center;
+  background-attachment:fixed;
+ }
+
+ .full {
+   color: white;
  }

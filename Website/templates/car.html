@@ -6,15 +6,17 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <style>
         body { margin:0; padding:0; }
-        #map { width: 50%; height: 500px; }
+        #map { width: 75%; height: 75%; }
     </style>
   <head>
 
   <body>
-    <p>
-      Drive from {{o}} to {{oa}} airport.The cost of this portion of the journey is {{c1}} dollars
-    <p>
-      <div id="map"></div>
+    <center>
+      <h2>
+        Drive from {{o}} to {{oa}} airport. The cost of this portion of the journey is ${{c1}}, assuming a standard average MPG value.
+      </h2>
+
+      <div id="map">
       <script>
           L.mapbox.accessToken = '{{ACCESS_KEY}}';
 
@@ -24,5 +26,7 @@
           }).setView({{thisorigin}}, 10);
           L.mapbox.featureLayer({{ route_data|safe }}).addTo(map);
       </script>
+      </div>
+      </center>
   </body>
 </html>
