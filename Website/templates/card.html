@@ -1,36 +1,53 @@
 <html>
   <head>
-    <p>The totalcost of the whole shown route is {{totalcost}}</p>
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel ="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+      h3 { color: white; }
+    </style>
   </head>
-  <body>
-    <div class="row">
+  <div class = "full">
+    <center><h3>The total cost of the whole route shown is ${{totalcost}}</h3></center>
+  </div>
+  <body class = "card-page">
+    <center>
+
       <div class="col-sm-6">
         <div class="card">
+
           <div class="card-body">
-            <h5 class="card-title">Drive</h5>
-            <p class="card-text">Drive from {{o}} to {{oa}} airport</p>
-            <a href="/carorigin" class="btn btn-primary">Know more</a>
+            <h5 class="card-title">Step 1</h5>
+            <div class="card-text">
+              <p>Drive from {{o}} to {{oa}} airport</p>
+            </div>
+            <a href="/carorigin" class="btn btn-primary">Route Details</a>
           </div>
+
         </div>
       </div>
+      <br>
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Take a flight</h5>
+            <h5 class="card-title">Step 2</h5>
             <p class="card-text">Take a flight from {{oa}} to {{da}}</p>
-            <a href="/flights">Know more</a>
+            <a href="/flights" class="btn btn-primary">Flight Details</a>
           </div>
         </div>
       </div>
+      <br>
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Drive</h5>
+            <h5 class="card-title">Step 3</h5>
             <p class="card-text">Drive from {{da}} to {{d}}</p>
-            <a href="/cardestination" class="btn btn-primary">Know more</a>
+            <a href="/cardestination" class="btn btn-primary">Route Details</a>
           </div>
         </div>
-      </div>
     </div>
+  </center>
   </body>
 </html>
