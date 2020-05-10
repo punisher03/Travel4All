@@ -35,6 +35,12 @@ https://youtu.be/kOHUoXlOqSM
 
 * Amadeus API
 
+* BeautifulSoup for webscraping
+
+* Pandas
+
+* Numpy
+
 * Flask
 
 * Mapbox
@@ -43,8 +49,6 @@ https://youtu.be/kOHUoXlOqSM
 
 * HTML and CSS
 
-* Pandas
 
-* Numpy
 
 
