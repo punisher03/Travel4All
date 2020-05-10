@@ -31,7 +31,7 @@ https://docs.google.com/presentation/d/1EbILpBRdoalYt99TnNJoJYydCnCmsBSF5PGRBtgN
 
 https://youtu.be/kOHUoXlOqSM
 
-## Tech stack
+## Tech stack:-
 
 * Amadeus API
 
@@ -48,6 +48,15 @@ https://youtu.be/kOHUoXlOqSM
 * Google Maps API
 
 * HTML and CSS
+
+
+## Other files:-
+
+gasprices.ipynb has the part where we used web scraping to extract gas prices and convert it into a csv. More details about the project are explained in our writeup. Here is the link:-
+
+https://docs.google.com/document/d/1GvMUIQKc4Sr3mTrxnjW5VFbD4h7RPBeE4gV4giwTE1A/edit?usp=sharing
+
+
 
 
 
