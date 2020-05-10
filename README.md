@@ -42,3 +42,9 @@ https://youtu.be/kOHUoXlOqSM
 * Google Maps API
 
 * HTML and CSS
+
+* Pandas
+
+* Numpy
+
+
