@@ -2,24 +2,26 @@
   <head>
     <link rel ="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
 
-    <h1>
-    Trip details
-    </h1>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <style>
         body { margin:0; padding:0; }
-        #map { width: 50%; height: 500px; }
+        #map { width: 75%; height: 75%; }
     </style>
   <head>
 
   <body>
-    <h2> Total cost of the trip by road is {{prices}} </h1>
-    <h4> The shortest route shown takes {{time}} minutes and the distance is {{diss}} miles</h2>
+    <center>
+      <h1>
+      Trip details
+      </h1>
+    <h3>The total cost of the shortest route shown is ${{prices}}.</h3>
+    <h3> The route takes {{time}}.</h3>
+    <h3> The distance is {{diss}} miles.</h3>
 
-      <div id="map"></div>
+      <div id="map">
       <script>
           L.mapbox.accessToken = '{{ACCESS_KEY}}';
 
@@ -29,6 +31,8 @@
           }).setView({{orig}}, 10);
           L.mapbox.featureLayer({{ routi|safe }}).addTo(map);
       </script>
+      </div>
+    </center>
   </body>
 </html>
 
