@@ -6,48 +6,37 @@
      <title>Demo Form</title>
      <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+     <link rel ="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   </head>
   <body>
-   <section class = "header">
-    <div class="container"><br>
-      <center>
-        <h2>Travel4All - Get your ideal route</h2>
-      </center>
-    </div>
-
-    <div class="container"><br>
-    <div class="row align-items-center justify-content-center">
-    <div class="col-md-4">
-      <form  action="/login" method="POST" role="form">
-
-        <div class="form-group">
-
-          <label for="name">From:</label>
-          <input type="text" class="form-control" id="name" name="FROM" placeholder="Where r u located?">
-            <br>
-          <label for="surname">To:</label>
-          <input type="text" class="form-control" id="surname" name="TO" placeholder="Where r u heading?">
-	    <br>
-	  <label for="email">Date:</label>
-	  <input type="text" class="form-control" id="email" name="DATE" placeholder="When r u leaving?">
-	    <br>
-
-	</div>
-        <br>
+      <div class = "flying-page">
 
         <center>
-          <button type="submit" class="drive-submit">Submit</button>
+          <img src="./static/images/b6f4f440-7d84-42e9-9608-90764cdafffb_200x200 (1).png">
+          <h2>You chose to fly!</h2>
         </center>
-      </form>
+      <form  action="/login" method="POST" role="form">
+        <div class="form-group container">
+          <label for="origin">Origin Location:</label>
+          <input type="text" class="form-control" id="name" name="FROM" placeholder="Where are you located?">
+          <br>
+          <label for="destination">Destination Location:</label>
+          <input type="text" class="form-control" id="surname" name="TO" placeholder="Where are you heading?">
+	        <br>
+	        <label for="date">Departure Date:</label>
+	        <input type="text" class="form-control" id="email" name="DATE" placeholder="YYYY-MM-DD">
+	        <br>
 
-      <br>
-
-    </div>
-    <br>
-    </div>
-    </div>
-   </section>
+	        <label for="budget">Budget:</label>
+	        <input type="number" class="form-control" id="budget" name="BUDGET" placeholder="Budget in dollars">
+	        <br>
+          <br>
+          <button type="submit" class="fly-submit">Submit</button>
+	      </div>
+        </form>
+      </div>
   </body>
 </html>
