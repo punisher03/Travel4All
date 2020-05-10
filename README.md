@@ -1,6 +1,8 @@
 # Travel4All
 ## Steps to run the project:-
-git clone the repository or download and cd into the repository
+git clone into the repository 
+
+cd Travel4All
 
 cd Website
 
