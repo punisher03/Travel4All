@@ -76,6 +76,7 @@ def flight_search():
     t1=request.form['FROM']
     t2=request.form['TO']
     t3=request.form['DATE']
+    t4=request.form['BUDGET']
     origin,aorigin=lat_lon(t1)
     df_o=nearest_airport(origin)
     df_o1=distance(origin,df_o)
@@ -100,7 +101,10 @@ def flight_search():
     a.append(x1)
     a.append(destination)
     a.append(d)
-    return render_template('card.html',o=o,oa=oa,da=da,d=d,totalcost=totalcost)
+    if totalcost>float(t4):
+        return render_template('exceed.html')
+    else:
+        return render_template('card.html',o=o,oa=oa,da=da,d=d,totalcost=totalcost)
 
 @app.route('/drivedetails',methods=['GET','POST'], endpoint = 'drive_search')
 def drive_search():
@@ -110,26 +114,25 @@ def drive_search():
     t4=request.form['HIGHWAY']
     t5=request.form['FUEL']
     t6=request.form['STATE']
+    t7=request.form['BUDGET']
 
 
     origin=get_lat_lon(t1)
     destination=get_lat_lon(t2)
     j=distance_between(origin,destination)
     gassy_price=calc_gas_price(t6,int(t3),int(t4),t5,j[0])
-
     ROUTE=[{"lat":origin[0] , "long": origin[1]},{"lat":destination[0] , "long": destination[1]}]
     lat_longs = ";".join(["{0},{1}".format(ROUTE[0]["long"], ROUTE[0]["lat"]),"{0},{1}".format(ROUTE[1]["long"], ROUTE[1]["lat"])])
-
     url = ROUTE_URL.format(lat_longs, MAPBOX_ACCESS_KEY)
     result = requests.get(url)
-
     data = result.json()
-
-    # Create a geo json object from the routing data
     geometry = data["routes"][0]["geometry"]
     route_data1 = Feature(geometry = geometry, properties = {})
+    if gassy_price>float(t7):
+        return render_template('exceed.html')
+    else:
+        return render_template('drive_results.html',prices=gassy_price,diss=j[0],time=j[1],routi=route_data1,ACCESS_KEY=MAPBOX_ACCESS_KEY,orig=origin)
 
-    return render_template('drive_results.html',prices=gassy_price,diss=j[0],time=j[1],routi=route_data1,ACCESS_KEY=MAPBOX_ACCESS_KEY,orig=origin)
 
 
 @app.route('/flights')
