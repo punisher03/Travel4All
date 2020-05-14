@@ -7,7 +7,7 @@ import googlemaps
 
 
 def lat_lon(origin_address):
-    apikey = 'AIzaSyDxk6272R8Yu_QDKZRyR27SZBaJKN-_3u0'
+    apikey = 'l752mUaecNtoAHgIk0xS8FU0PT7Gylhg'
     r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address="%s"&key=%s'%
                  (origin_address, apikey))
     result_o = r.json()['results']
