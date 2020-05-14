@@ -16,7 +16,7 @@ from geojson import Feature
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 
 app = Flask(__name__)
-apikey='AIzaSyDxk6272R8Yu_QDKZRyR27SZBaJKN-_3u0'
+apikey='l752mUaecNtoAHgIk0xS8FU0PT7Gylhg'
 MAPBOX_ACCESS_KEY = 'pk.eyJ1IjoicmlzaGkxMzQyIiwiYSI6ImNrOWc1dXVtYTBraTMzaHF0NDVpaThwbG0ifQ.uvgtGnygTWTUgzBkzZwnPQ'
 a=[]
 b=[]
