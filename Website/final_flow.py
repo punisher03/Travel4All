@@ -2,8 +2,8 @@ import json
 from amadeus import Client, ResponseError
 import pandas as pd
 def finall_flow(df,df1,origin_address,dest_address,date):
-    amadeus = Client(client_id='UmuSC0LY9TgqaZoLDpBR2x74yN0GCahI',
-        client_secret='9SbiFzopXFTkVOBz')
+    amadeus = Client(client_id='l752mUaecNtoAHgIk0xS8FU0PT7Gylhg',
+        client_secret='XorPUhfQAf0owoI4')
     total_costs = {}
     flight_costs = {}
     print(df)
