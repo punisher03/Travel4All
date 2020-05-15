@@ -2,22 +2,22 @@
 ## Steps to run the project:-
 git clone into the repository 
 
-cd Travel4All
+`cd Travel4All-master`
 
-cd Website
+`cd Website`
 
 install all the dependencies
 
-  * pip install iso8601
-  * pip install amadeus
-  * pip install googlemaps
-  * pip install gmaps
-  * pip install wtforms
-  * pip install pandas
-  * pip install json
-  * pip install datetime
+  * `pip install iso8601`
+  * `pip install amadeus`
+  * `pip install googlemaps`
+  * `pip install gmaps`
+  * `pip install wtforms`
+  * `pip install pandas`
+  * `pip install json`
+  * `pip install datetime`
   
-run python main.py
+run `python main.py`
 
 the website will be up on the localhost
 
